@@ -17,7 +17,6 @@ struct Node
 
 int main()
 {
-    /*
     // Method 1 of declaring object of structure
     Student s1;
     s1.name = "Alice";
@@ -65,8 +64,37 @@ int main()
         cin>>temp.marks;
         cin.ignore();
         v.push_back(temp);
-    } */
+    }
 
-    
+    int size = v.size();
+    for(int i=0; i<size; i++){
+        cout<<"Name = "<<v[i].name<<endl;
+        cout<<"Marks = "<<v[i].marks<<endl<<endl;
+    }
+
+    Student best = v[0];
+    for(int i=0; i<size; i++){
+        if(best.marks<v[i].marks){
+            best.marks = v[i].marks;
+            best.name = v[i].name;
+        }
+    }
+    cout<<"Best Name = "<<best.name<<" Best Marks = "<<best.marks<<endl<<endl;
+    // Node 1
+    Node a, b, c;
+    a.value = 10;
+    b.value = 20;
+    c.value = 30;
+
+    a.next = &b;
+    b.next = &c;
+    c.next = nullptr;
+
+    Node* cur = &a;
+    while(cur != nullptr){
+        cout<<cur->value<<"->";
+        cur = cur->next;
+    }
+    cout<<"NULL"<<endl;
     return 0;
 }
